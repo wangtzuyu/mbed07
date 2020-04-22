@@ -127,8 +127,11 @@ def train_net(
 
   # Convert the model to the TensorFlow Lite format without quantization
   converter = tf.lite.TFLiteConverter.from_keras_model(model)
+  ######################################################################
+  converter.experimental_new_converter = True
+  ##############################################3#######################
   tflite_model = converter.convert()
-
+  open("converted_model.tflite", "wb").write(tflite_model) 
   # Save the model to disk
   open(model_path+"model.tflite", "wb").write(tflite_model)
 

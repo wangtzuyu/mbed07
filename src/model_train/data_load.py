@@ -26,6 +26,8 @@ import json
 import numpy as np
 import tensorflow as tf
 
+tf.enable_eager_execution()
+
 from data_augmentation import augment_data
 import config
 
